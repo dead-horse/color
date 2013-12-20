@@ -1,0 +1,48 @@
+{
+  "name": "color",
+  "version": "0.0.1",
+  "description": "color visualization in 3D",
+  "keywords": [],
+  "author": "dead_horse <dead_horse@qq.com>",
+  "repository": { 
+    "type": "git", 
+    "url": "git@git@github.com:dead_horse/color.git"
+  },
+  "dependencies": {
+    "connect": "~2.11.0",
+    "connect-rt": "~0.0.2",
+    "connect-render": "~0.3.2",
+    "urlrouter": "~0.5.3",
+    "graceful": "~0.0.5",
+    "moment": "~2.4.0",
+    "logfilestream": "~0.1.0",
+    "ms": "~0.6.1",
+    "mkdirp": "~0.3.5",
+    "response-patch": "~0.1.1"
+  },
+  "devDependencies": {
+    "mocha": "*", 
+    "should": "~2.1.0",
+    "blanket": "~1.1.4",
+    "supertest": "*",
+    "travis-cov": "*",
+    "pedding": "*"
+  },
+  "scripts": {
+    "test": "make test-all",
+    "start": "bin/nodejsctl start",
+    "stop": "bin/nodejsctl stop",
+    "status": "bin/nodejsctl status",
+    "dev": "node dispatch.js",
+    "restart": "bin/nodejsctl restart",
+    "blanket": {
+      "pattern": "//^((?!(node_modules|test)).)*$/"
+    },
+    "travis-cov": {
+      "threshold": 60
+    }
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}
