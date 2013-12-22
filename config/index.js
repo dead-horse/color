@@ -28,6 +28,12 @@ var config = {
   sessionSecret: 'input your own sesson secret',
   sessionCookie: 'input your own session cookie',
   logdir: path.join(root, '.tmp', 'logs'),
+  qn: {
+    accessKey: "you access key",
+    secretKey: "your secret key",
+    bucket: "your bucket name",
+    domain: "your domain"
+  },
 };
   
 // load config/config.js, everything in config.js will cover the same key in index.js
