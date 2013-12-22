@@ -1,1 +1,60 @@
-<h3>Welcome to webT!</h3>
+    <title>WebGL Globe</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/public/css/main.css" />
+    <div id="container" class="container"></div>
+
+    <!-- container1是3D界面（webgl） -->
+    <div id="container1" class="container">
+        <canvas id="webGL" class="webGL"></canvas>
+    </div>
+
+    <!-- container2是各种载入器（loader） -->
+    <div id="container2" class="container">
+
+        <div id="loaders" class="loaders">
+            <!-- 载入器1（loaders） -->
+
+            <form>
+                <span class="inputText1">+</span>
+                <input type="file" class="filePrew" id="input1" />
+            </form>
+
+            <div id="loader1" class="loader">
+                <canvas id="loader1Canvas" width="200" height="200" class="canvas"></canvas>
+
+            </div>
+
+            <form>
+                <span class="inputText2">+</span>
+                <input type="file" class="filePrew" id="input2" />
+            </form>
+
+            <div id="loader2" class="loader">
+                <canvas id="loader2Canvas" width="200" height="200" class="canvas"></canvas>
+
+            </div>
+        </div>
+
+        <div id="selector" class="selector"></div>
+        <div id="selector1" class="selector1"></div>
+        <div id="selector2" class="selector2"></div>
+
+    </div>
+    </div>
+
+    <script type="text/javascript" src="http://cdn.staticfile.org/three.js/r61/three.min.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/public/js/color_3d/init_style.js"></script>
+
+    <script type="text/javascript" src="/public/js/color_3d/add_selector.js"></script>
+    <script type="text/javascript" src="/public/js/color_3d/color_space.js"></script>
+    <script type="text/javascript" src="/public/js/color_3d/init_three.js"></script>
+    <script type="text/javascript" src="/public/js/color_3d/init_interactions.js"></script>
+    <script type="text/javascript" src="/public/js/color_3d/init_axis.js"></script>
+    <script type="text/javascript" src="/public/js/color_3d/init_visual.js"></script>
+    <script type="text/javascript" src="/public/js/color_3d/cluster.js"></script>
+    <script type="text/javascript" src="/public/js/main.js"></script>
+
+    <script type="text/javascript">
+    </script>

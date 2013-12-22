@@ -1,0 +1,183 @@
+           html {
+               width:100%;
+               height: 100%;
+           }
+           body {
+               margin: 0;
+               padding: 0;
+               background: #000000 center center no-repeat;
+               color: rgba(0, 0, 0, 0.0);
+               font-family: Microsoft YaHei;
+               font-size: 13px;
+               line-height: 20px;
+               height: 100%;
+           }
+           .container {
+               position: absolute;
+               top:0px;
+               left:0px;
+               width: 100%;
+               height: 100%;
+               visibility: visible;
+           }
+           .webGL {
+               position: absolute;
+               top:0px;
+               left:0px;
+               width: 100%;
+               height: 100%;
+               visibility: visible;
+           }
+           .loaders {
+               position: absolute;
+               top:10%;
+               left:10%;
+               width: 200;
+               background: rgba(0, 0, 0, 0.2);
+               overflow: visible;
+           }
+           .loaders .loader {
+               position: relative;
+               visibility: visible;
+               width:inherit;
+               height:inherit;
+               background: rgba(1, 1, 1, 0.4);
+               overflow: visible;
+               -webkit-filter: drop-shadow(0px 0px 50px rgba(250, 255, 255, 0.3));
+           }
+           input.file {
+               position: relative;
+               top:8px;
+               left: 0px;
+               color: rgba(1, 1, 1, 0);
+               height: 30px;
+               opacity: 0.5;
+               background:url(add.png);
+               /*background-repeat:no-repeat;*/
+               /*background: rgba(1,1,1,1);*/
+           }
+  
+           .filePrew {
+               display: block;
+               position: relative;
+               background:"rgba(1,1,61,1)";
+               top: 0;
+               left: 0;
+               width: 40px;
+               height: 40px;
+               font-size: 100px;
+               /* 增大不同浏览器的可点击区域 */
+               opacity: 0.0;
+               /* 实现的关键点 */
+               filter:alpha(opacity=0);
+               /* 兼容IE */
+           }
+           .inputText1 {
+               position: relative;
+               top:30px;
+               width: 40px;
+               height: 40px;
+               font-weight:bold;
+               color:rgba(1, 155, 155, 1);
+               text-align: center;
+               vertical-align:middle;
+               font-size: 50px;
+           }
+           .inputText1:hover {
+               color:rgba(1, 255, 255, 1);
+               background: rgba(255, 255, 255, 0.1);
+           }
+           .inputText2 {
+               position: relative;
+               top:30px;
+               width: 40px;
+               height: 40px;
+               font-weight:bold;
+               color:rgba(255, 155, 55, 1);
+               text-align: center;
+               vertical-align:middle;
+               font-size: 50px;
+           }
+           .inputText2:hover {
+               color:rgba(1, 255, 255, 1);
+               background: rgba(255, 255, 255, 0.1);
+           }
+           .selector {
+               -webkit-transition: all 0.3s ease-in-out;
+               position: absolute;
+               top: 90%;
+               left: 10%;
+               width:40%;
+               height: 3%;
+               opacity:0.4;
+           }
+           .selector:hover {
+               -webkit-transition: all 0.3s ease-in-out;
+               opacity:1;
+           }
+
+            .selector1 {
+               -webkit-transition: all 0.3s ease-in-out;
+               position: absolute;
+               top: 85%;
+               left: 10%;
+               width:40%;
+               height: 3%;
+               opacity:0.4;
+           }
+           .selector1:hover {
+               -webkit-transition: all 0.3s ease-in-out;
+               opacity:1;
+           }
+            .selector2{
+               -webkit-transition: all 0.3s ease-in-out;
+               position: absolute;
+               top: 85%;
+               left: 60%;
+               width:20%;
+               height: 3%;
+               opacity:0.4;
+           }
+           .selector1:hover {
+               -webkit-transition: all 0.3s ease-in-out;
+               opacity:1;
+           }
+
+           .selectorGrid {
+               position : relative;
+               text-align: center;
+               height: 100%;
+               color: rgba(100, 150, 150, 0.6);
+               float:left;
+               border: #006666 1px solid;
+               background: rgba(250, 150, 0, 0.0);
+               z-index: 100;
+               -webkit-transition: all 0.3s ease-out;
+           }
+           .selectorGrid:hover {
+            -webkit-filter: drop-shadow(0px 0px 5px rgba(255, 255, 200, 0.3));
+               position : relative;
+               text-align: center;
+               height: 100%;
+               color: rgba(0, 150, 150, 0.9);
+               float:left;
+               border: #006666 1px solid;
+               z-index: 100;
+               -webkit-transition: all 0.3s ease-out;
+           }
+           .selectorGridActive {
+            -webkit-filter: drop-shadow(0px 0px 20px rgba(255, 255, 200, 1));
+               -webkit-transition: all 0.4s ease-out;
+                position : relative;
+               float:left;
+               text-align: center;
+               font-weight:bold;
+               height: 100%;
+               color: rgba(55, 255, 255, 1);
+               background: rgba(0, 10, 10, 0.0);
+               border: #00ffff 1px solid;
+               z-index: 100;
+           }
+    
+   
+   
