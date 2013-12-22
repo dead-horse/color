@@ -21,7 +21,7 @@ var root = path.dirname(__dirname);
 
 var config = {
   version: pkg.version,
-  webPort: 7001,
+  webPort: process.env.PORT || 7001,
   enableCluster: false,
   debug: true, // if debug
   viewCache: true,
