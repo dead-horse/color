@@ -9,25 +9,25 @@
     "url": "git@git@github.com:dead_horse/color.git"
   },
   "dependencies": {
-    "connect": "~2.11.0",
-    "connect-rt": "~0.0.2",
-    "connect-render": "~0.3.2",
-    "urlrouter": "~0.5.3",
-    "graceful": "~0.0.5",
-    "moment": "~2.4.0",
-    "logfilestream": "~0.1.0",
-    "ms": "~0.6.1",
-    "mkdirp": "~0.3.5",
-    "response-patch": "~0.1.1",
-    "qn": "0.2.0"
+    "connect": "2.12.0",
+    "connect-render": "0.3.2",
+    "connect-rt": "0.0.2",
+    "graceful": "0.0.5",
+    "logfilestream": "0.1.0",
+    "mkdirp": "0.3.5",
+    "moment": "2.4.0",
+    "ms": "0.6.2",
+    "qn": "0.2.0",
+    "response-patch": "0.1.1",
+    "urlrouter": "0.5.4"
   },
   "devDependencies": {
-    "mocha": "*", 
-    "should": "~2.1.0",
     "blanket": "~1.1.4",
-    "supertest": "*",
-    "travis-cov": "*",
-    "pedding": "*"
+    "mocha": "*",
+    "pedding": "*",
+    "should": "~2.1.0",
+    "supertest": "0.8.2",
+    "travis-cov": "*"
   },
   "scripts": {
     "test": "make test-all",
