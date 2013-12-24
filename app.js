@@ -18,6 +18,7 @@ var connect = require('connect');
 var render = require('connect-render');
 var urlrouter = require('urlrouter');
 var logger = require('./common/logger');
+var getRawBody = require('raw-body');
 
 var config = require('./config');
 var routes = require('./routes');
@@ -26,6 +27,7 @@ var routes = require('./routes');
 var PUBLIC_DIR = path.join(__dirname, 'public');
 
 var app = connect();
+app.use(connect.limit(config.maxRequestSize));
 
 app.use(rt({headerName: 'X-ReadTime'}));
 app.use('/public', connect.static(PUBLIC_DIR));
@@ -43,20 +45,20 @@ app.use(connect.json({
   strict: true
 }));
 
-//parse cookie
-app.use(connect.cookieParser());
+// //parse cookie
+// app.use(connect.cookieParser());
 
-//session
-app.use(connect.session({
-  key: config.sessionCookie,
-  secret: config.sessionSecret,
-  cookie: { path: '/', httpOnly: true},
-}));
+// //session
+// app.use(connect.session({
+//   key: config.sessionCookie,
+//   secret: config.sessionSecret,
+//   cookie: { path: '/', httpOnly: true},
+// }));
 
 //handle csrf, do not open it when 
-if (process.env.NODE_ENV !== 'test') {
-  app.use(connect.csrf());  
-}
+// if (process.env.NODE_ENV !== 'test') {
+//   app.use(connect.csrf());  
+// }
 
 /**
  * res.render helpers

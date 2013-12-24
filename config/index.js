@@ -13,6 +13,7 @@
 var path = require('path');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
+var rimraf = require('rimraf');
 
 fs.existsSync = fs.existsSync || path.existsSync;
 var pkg = require('../package.json');
@@ -23,17 +24,17 @@ var config = {
   version: pkg.version,
   webPort: process.env.PORT || 7001,
   enableCluster: false,
-  debug: true, // if debug
+  debug: process.env.debug || true, // if debug
   viewCache: true,
-  sessionSecret: 'input your own sesson secret',
-  sessionCookie: 'input your own session cookie',
   logdir: path.join(root, '.tmp', 'logs'),
   qn: {
-    accessKey: "you access key",
-    secretKey: "your secret key",
-    bucket: "your bucket name",
-    domain: "your domain"
+    accessKey: process.env.qnAccessKey,
+    secretKey: process.env.qnSecretKey,
+    bucket: process.env.qnBucket,
+    domain: process.env.qnDomain
   },
+  uploadDir: path.join(root, '.tmp', 'upload'),
+  maxRequestSize: 5 * 1024 * 1024
 };
   
 // load config/config.js, everything in config.js will cover the same key in index.js
@@ -46,5 +47,7 @@ if (fs.existsSync(customConfig)) {
 }
 
 mkdirp.sync(config.logdir);
+rimraf.sync(config.uploadDir);
+mkdirp.sync(config.uploadDir);
 
 module.exports = config;

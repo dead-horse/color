@@ -12,3 +12,5 @@
 
 var config = require('../config');
 var qn = require('qn');
+
+module.exports = qn.create(config.qn);
