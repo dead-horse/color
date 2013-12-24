@@ -1,5 +1,19 @@
-    <div>
-        <form action="/files" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" /> <input type="submit" />
-        </form>
-    </div>
+<input id="fileupload" type="file" name="file" data-url="/files" multiple>
+<div id="view"></div>
+<script src="/public/js/plugins/upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="/public/js/plugins/upload/js/jquery.iframe-transport.js"></script>
+<script src="/public/js/plugins/upload/js/jquery.fileupload.js"></script>
+<script src="/public/js/plugins/upload/js/jquery.fileupload-process.js"></script>
+<script src="/public/js/plugins/upload/js/jquery.fileupload-validate.js"></script>
+<script>
+$('#fileupload').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
+      if (data.result.ok) {
+        $('#view').html('<img src="' + data.result.url + '">');
+      }
+    }
+}).on('fileuploadfail', function (e, data) {
+  console.log(e, data);
+});
+</script>

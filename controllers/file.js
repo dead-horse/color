@@ -47,7 +47,6 @@ exports.upload = function (req, res, next) {
     });
   });
   form.onPart = function (part) {
-    console.log(part);
     if (part.filename && 
         part.name === 'file' && 
         (part.mime === 'image/png' || part.mime === 'image/jpeg')) {
