@@ -65,7 +65,3 @@ exports.get = function (req, res, next) {
     rimraf(imgPath, utility.noop);
   });
 };
-
-exports.show = function (req, res) {
-  res.render('/upload');
-};
