@@ -9,6 +9,12 @@ function loadImagePt(imgName, groupIndex) {
   img.src = imgName;
   img.onload = loadVisual
 
+  var loadingImg = new Image();
+  var div = document.getElementById("loader"+groupIndex);
+  div.style.backgroundImage = "url(../public/image/loading.gif)";//"url('URL')|none|inherit"
+  div.style.backgroundRepeat="no-repeat";
+  div.style.backgroundPosition =" center center";
+
   function loadVisual() {
     
     imgNames[groupIndex] = imgName;
@@ -123,7 +129,6 @@ function addPts(ctx, groupIndex) {
   }
 
   if (colorType[0] == "X") {
-    console.log(ctx)
     var imgd = ctx.getImageData(0, 0, loaderWidth, loaderHeight);
     var data = imgd.data;
     PaticleGeometry1 = new THREE.Geometry();
@@ -218,3 +223,4 @@ var bol
       }
     }
   }
+  
