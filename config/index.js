@@ -20,11 +20,18 @@ var pkg = require('../package.json');
 
 var root = path.dirname(__dirname);
 
+var debug = process.env.debug;
+if (debug === 0 || debug === false || debug === '0' || debug === 'false') {
+  debug = false;
+} else {
+  debug = true;
+}
+console.log(debug);
 var config = {
   version: pkg.version,
   webPort: process.env.PORT || 7001,
   enableCluster: false,
-  debug: process.env.debug || true, // if debug
+  debug: debug,
   viewCache: true,
   logdir: path.join(root, '.tmp', 'logs'),
   qn: {
