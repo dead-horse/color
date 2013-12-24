@@ -46,10 +46,10 @@ init();
 
 var imgIndex = 1;
 
-function fileSelected(e) {
+function fileSelected(e,url) {
 
   groupIndex = parseInt(e.target.id[5])
-  var name = "/public/image/" + e.target.files[0].name;
+  var name = url;
 
   clearVisual(groupIndex);
   loadImagePt(name, groupIndex);
@@ -71,8 +71,33 @@ function init() {
 
   initRender();
   initInteraction();
-  $("#input1")[0].addEventListener('change', fileSelected, false);
-  $("#input2")[0].addEventListener('change', fileSelected, false);
+  // $("#input1")[0].addEventListener('change', fileSelected, false);
+  // $("#input2")[0].addEventListener('change', fileSelected, false);
+
+  $('#input1').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
+      if (data.result.ok) {
+        var url = data.result.url;
+        fileSelected(e, url);
+      }
+    }
+}).on('fileuploadfail', function (e, data) {
+  console.log(e, data);
+});
+
+  $('#input2').fileupload({
+    dataType: 'json',
+    done: function (e, data) {
+      if (data.result.ok) {
+        var url = data.result.url;
+        fileSelected(e, url);
+      }
+    }
+}).on('fileuploadfail', function (e, data) {
+  console.log(e, data);
+});
+
   loop();
 }
 

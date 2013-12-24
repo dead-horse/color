@@ -15,22 +15,18 @@
             <!-- 载入器1（loaders） -->
 
             <form>
-                <span class="inputText1">+</span>
-                <input type="file" class="filePrew" id="input1" />
+                <input id="input1" type="file" name="file" data-url="/files" multiple>
             </form>
 
             <div id="loader1" class="loader">
-                <canvas id="loader1Canvas" width="200" height="200" class="canvas"></canvas>
-
+                <canvas id="loader1Canvas" width="150" height="150" class="canvas"></canvas>
             </div>
 
             <form>
-                <span class="inputText2">+</span>
-                <input type="file" class="filePrew" id="input2" />
+                <input id="input2" type="file" name="file" data-url="/files" multiple>
             </form>
-
             <div id="loader2" class="loader">
-                <canvas id="loader2Canvas" width="200" height="200" class="canvas"></canvas>
+                <canvas id="loader2Canvas" width="150" height="150" class="canvas"></canvas>
 
             </div>
         </div>
@@ -44,6 +40,10 @@
     <script type="text/javascript" src="http://cdn.staticfile.org/three.js/r61/three.min.js"></script>
 
     <script type="text/javascript" src="/public/js/color_3d/init_style.js"></script>
+
+    <script src="/public/js/plugins/upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="/public/js/plugins/upload/js/jquery.iframe-transport.js"></script>
+    <script src="/public/js/plugins/upload/js/jquery.fileupload.js"></script>
 
     <script type="text/javascript" src="/public/js/color_3d/add_selector.js"></script>
     <script type="text/javascript" src="/public/js/color_3d/color_space.js"></script>

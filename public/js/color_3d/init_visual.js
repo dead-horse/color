@@ -7,8 +7,10 @@ var groupIndex = 1;
 function loadImagePt(imgName, groupIndex) {
   var img = new Image();
   img.src = imgName;
+  img.onload = loadVisual
 
   function loadVisual() {
+    
     imgNames[groupIndex] = imgName;
     bol = false;
     if (groupIndex === 1) {
@@ -19,11 +21,11 @@ function loadImagePt(imgName, groupIndex) {
     }
     ctx.clearRect(0, 0, loaderWidth, loaderHeight);
     ctx.drawImage(img, 0, 0, picWidth, picHeight);
+    
+    var url = ctx.canvas.toDataURL();
 
     addPts(ctx, groupIndex);
   }
-
-  img.onload = loadVisual
 }
 
 
