@@ -3,54 +3,25 @@
  var w = window.innerWidth;
  var h = window.innerHeight;
 
-$(document).ready(function() {
-  $.ajax({
-    type: "GET",
-    url: "/public/image/data.txt",
-    dataType: "text",
-    contentType: "application/x-www-form-urlencoded; charset=utf-8",
-    success: function(data) {
-      start(data);
-    }
-  });
-});
 
-colorList = [];
-var colorIndex = -1
-
-  function start(allText) {
-    var record_num = 8; // or however many elements there are in each row
-    var allTextLines = allText.split(/\r\n|\n/);
-
-    var results = {}
-    for (var k = 0; k < allTextLines.length; k++) {
-      var entries = allTextLines[k].split(',');
-      if (entries.length < 2) {
-        colorIndex = parseInt(entries);
-        colorList[colorIndex] = []
-      }
-      if (entries.length > 2) {
-        colorList[colorIndex].push([parseFloat(entries[0]), [parseInt(entries[1]), parseInt(entries[2]), parseInt(entries[3])]])
-      }
-    }
-    init();
-  }
+ var loaderWidth = parseInt(w*0.1);
+ var loaderHeight = parseInt(loaderWidth*1.1);
+ var picWidth = loaderWidth;
+ var picHeight = loaderWidth;
 
 
-
+init();
 
   function initVisual() {
     addVisualSphere(); //颜色指示球
-    var loaders = $("#loaders")[0];
-    var loader1 = $("#loader1")[0];
-    $("#loader1").bind("mousemove", ctxHover, false);
-    $("#loader2").bind("mousemove", ctxHover, false);
+
+    var loader1 = document.getElementById("loader1");
+    var loader2 = document.getElementById("loader2");
 
     loader1.style.width = loaderWidth + "px";
     loader1.style.height = loaderHeight + "px";
     ctx1 = $("#loader1Canvas")[0].getContext("2d");
-
-    var loader2 = $("#loader2")[0];
+    
     loader2.style.width = loaderWidth + "px";
     loader2.style.height = loaderHeight + "px";
     ctx2 = $("#loader2Canvas")[0].getContext("2d");
@@ -69,6 +40,8 @@ var colorIndex = -1
     data = ["极坐标", "直角坐标"]
     addSelector(div, data, resetAxis)
 
+    loader1.addEventListener("mousemove",ctxHover,false);
+    loader2.addEventListener("mousemove",ctxHover,false);
   }
 
 var imgIndex = 1;
@@ -98,7 +71,6 @@ function init() {
 
   initRender();
   initInteraction();
-  document.addEventListener('keydown', onDocumentKeyDown, false);
   $("#input1")[0].addEventListener('change', fileSelected, false);
   $("#input2")[0].addEventListener('change', fileSelected, false);
   loop();
@@ -110,25 +82,6 @@ function loop() {
   loopInteraction();
   loopThree()
 }
-
-
-function onDocumentKeyDown(event) {
-  switch (event.keyCode) {
-
-    case 32:
-      imgIndex += 1;
-      clearVisual(groupIndex);
-      loadImagePt(imgIndex);
-      event.preventDefault();
-      break;
-
-    case 13:
-      resetColorType("RGB")
-      event.preventDefault();
-      break;
-  }
-}
-
 
 function resetColorType(colorType1) {
   colorType = colorType1;
@@ -150,7 +103,7 @@ function reset() {
 
 
 ////////////////////////////////////////3d可视化相关////////////////////////////////////////
-var ctxs = []
+// var ctxs = []
   function initAxis() {//坐标轴的标注
     for (var k = 0; k < 3; k++) { 
       var div = document.createElement("div");
@@ -167,3 +120,16 @@ var ctxs = []
 
 
 ////////////////////////////////////////色彩相关////////////////////////////////////////
+
+  function ctxHover(e) {
+    var x = e.offsetX;
+    var y = e.offsetY;
+    var id = parseInt(this.id[6])
+
+    var data = ctxs[id].getImageData(x, y, 1, 1).data;
+    var colorType1 = colorType.toUpperCase()
+    if (colorType1 === "HSB" || colorType1 === "RGB" || colorType1 === "LAB" || colorType1 === "HSL" || colorType1 === "HSV") {
+      visualSphereMat.color.setRGB(data[0] / 255, data[1] / 255, data[2] / 255);
+      visualSphere.position = colorSpace(data[0], data[1], data[2]);
+    }
+  }

@@ -17,7 +17,7 @@
     }
     if(colorType==="HSV"){
     axisType="rad";
-    axiNames=["H(色相)","B(明度(=v))","S(饱和度)"];
+    axiNames=["H(色相)","B(明度)","S(饱和度)"];
     }
 
     if(colorType==="HSL"){
