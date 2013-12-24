@@ -17,16 +17,34 @@
     }
     if(colorType==="HSV"){
     axisType="rad";
-    axiNames=["H(色相)","B(明度)","S(饱和度)"];
+    if(chineseBol){
+      axiNames=["H(色相)","B(明度)","S(饱和度)"];
+    }
+    else{
+      axiNames=["H(hue)","B(brightness)","S(satisfaction)"];
+    }
+    
     }
 
     if(colorType==="HSL"){
       axisType="rad";
-      axiNames=["H(色相)","L(明度)","S(饱和度)"];
+      if(chineseBol){
+        axiNames=["H(色相)","L(明度)","S(饱和度)"]; 
+      }
+      else{
+        axiNames=["H(hue)","L(lightness)","S(satisfaction)"]; 
+      }
+     
     }
     if(colorType==="RGB"){
       axisType="rec"
-      axiNames=["R(红)","B(蓝)","G(绿)"];
+      if(chineseBol){
+        axiNames=["R(红)","B(蓝)","G(绿)"];
+      }
+      else{
+        axiNames=["R(red)","B(blue)","G(green)"];
+      }
+      
     }
     if(colorType==="LAB"){
     axisType="rec";
@@ -34,7 +52,13 @@
     }
     if((colorType==="XYLAB")||(colorType==="XYHSB")||(colorType==="XYHSL")||(colorType==="XYHSV")||(colorType==="XYRGB")){
     axisType="rec";
-    var string = "Value(红-"+colorType[2]+", 蓝-"+colorType[3]+",  绿-"+colorType[4]+")"
+    if(chineseBol){
+          var string = "Value(红-"+colorType[2]+", 蓝-"+colorType[3]+",  绿-"+colorType[4]+")"
+        }
+        else{
+              var string = "Value(red-"+colorType[2]+", blue-"+colorType[3]+",  green-"+colorType[4]+")"
+
+        }
     axiNames=["x",string,"y"];
     }
 
