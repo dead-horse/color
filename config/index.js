@@ -26,7 +26,7 @@ if (debug === 0 || debug === false || debug === '0' || debug === 'false') {
 } else {
   debug = true;
 }
-console.log(debug);
+
 var config = {
   version: pkg.version,
   webPort: process.env.PORT || 7001,

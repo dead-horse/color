@@ -78,7 +78,6 @@ app.use(render({
   helpers: helpers
 }));
 
-
 /**
  * Web site URL routing
  */
