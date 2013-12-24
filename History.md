@@ -1,0 +1,30 @@
+
+0.0.1 / 2013-12-24 
+==================
+
+  * add upload into gitignore
+  * fix front end picture select
+  * update gitignore
+  * do not remove first
+  * update readme
+  * remove upload
+  * add fork
+  * Merge pull request #3 from dead-horse/use-local-store
+  * use local store
+  * fix upload demo
+  * add plugins
+  * fix upload demo
+  * remove console
+  * update title
+  * update set debug
+  * Merge pull request #2 from dead-horse/add-upload
+  * add upload
+  * Merge pull request #1 from dead-horse/front-end
+  * upate front end
+  * update package.json by autod
+  * remove npm run start, add Profile for heroku
+  * fix config to heroku
+  * add qianniu
+  * add color 3d front end page
+  * init the web by webt
+  * Initial commit
