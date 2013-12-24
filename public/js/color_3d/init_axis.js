@@ -56,10 +56,10 @@
       ////////////////x轴或round轴/////////////////////
       var color = new THREE.Color();
       if(colorType==="HSV"){
-        color.setHSL(k, 0.8, 0.5);
+        color.setHSL(k, 0.9, 0.6);
       }
       if(colorType==="HSL"){
-        color.setHSL(k, 0.8, 0.5);
+        color.setHSL(k, 0.9, 0.6);
       }
        if(colorType==="RGB"){
         color.setRGB(k, 0, 0);

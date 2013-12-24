@@ -12,6 +12,11 @@
                line-height: 20px;
                height: 100%;
            }
+           .transition{
+            font-family: Microsoft YaHei;
+            padding:2px 5px 2px 5px;
+            -webkit-transition: all 0.3s ease-in-out;
+           }
            .container {
                position: absolute;
                top:0px;
@@ -32,7 +37,7 @@
                position: absolute;
                top:10%;
                left:10%;
-               width: 200;
+               width: 150;
                background: rgba(0, 0, 0, 0.2);
                overflow: visible;
            }
@@ -109,7 +114,7 @@
                left: 10%;
                width:40%;
                height: 3%;
-               opacity:0.4;
+               opacity:0.5;
            }
            .selector:hover {
                -webkit-transition: all 0.3s ease-in-out;
@@ -123,7 +128,7 @@
                left: 10%;
                width:40%;
                height: 3%;
-               opacity:0.4;
+               opacity:0.5;
            }
            .selector1:hover {
                -webkit-transition: all 0.3s ease-in-out;
@@ -136,12 +141,27 @@
                left: 60%;
                width:20%;
                height: 3%;
-               opacity:0.4;
+               opacity:0.5;
            }
-           .selector1:hover {
+           .selector2:hover {
                -webkit-transition: all 0.3s ease-in-out;
                opacity:1;
            }
+
+           .selector3{
+               -webkit-transition: all 0.3s ease-in-out;
+               position: absolute;
+               top: 90%;
+               left: 60%;
+               width:20%;
+               height: 3%;
+               opacity:0.5;
+           }
+            .selector3:hover {
+               -webkit-transition: all 0.3s ease-in-out;
+               opacity:1;
+           }
+
 
            .selectorGrid {
                position : relative;
