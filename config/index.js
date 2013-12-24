@@ -40,7 +40,7 @@ var config = {
     bucket: process.env.qnBucket,
     domain: process.env.qnDomain
   },
-  uploadDir: path.join(root, '.tmp', 'upload'),
+  uploadDir: path.join(root, 'public', 'upload'),
   maxRequestSize: 5 * 1024 * 1024
 };
   

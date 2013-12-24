@@ -16,4 +16,5 @@ module.exports = function (app) {
   app.get('/', home);
   app.get('/upload', file.show);
   app.post('/files', file.upload);
+  app.get('/files/:id', file.get);
 };
