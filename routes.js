@@ -10,7 +10,10 @@
  * Module dependencies.
  */
 var home = require('./controllers/home');
+var file = require('./controllers/file');
 
 module.exports = function (app) {
   app.get('/', home);
+  app.get('/upload', file.show);
+  app.post('/files', file.upload);
 };
