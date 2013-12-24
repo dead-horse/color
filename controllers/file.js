@@ -17,6 +17,8 @@ var IncomingForm = require('formidable').IncomingForm;
 var rimraf = require('rimraf');
 var path = require('path');
 var utility = require('utility');
+var fs = require('fs');
+var mime = require('connect').mime;
 
 exports.upload = function (req, res, next) {
   var form = new IncomingForm();
@@ -33,16 +35,14 @@ exports.upload = function (req, res, next) {
       });
     }
     var type = file.type ? '.' + file.type.split('/')[1] : path.extname(file.name);
-    qn.uploadFile(file.path, {
-      key: path.basename(file.path) + type
-    }, function (err, data) {
-      rimraf(file.path, utility.noop);
+    var newPath = file.path + type;
+    fs.rename(file.path, newPath, function (err) {
       if (err) {
         return next(err);
       }
-      res.json({
-        ok: !!data.url,
-        url: data.url || ''
+      return res.json({
+        ok: true,
+        url: '/files/' + path.basename(newPath)
       });
     });
   });
@@ -53,6 +53,17 @@ exports.upload = function (req, res, next) {
       form.handlePart(part);
     }
   };
+};
+
+exports.get = function (req, res, next) {
+  var id = req.params.id;
+  var imgPath = path.join(config.uploadDir, id);
+  var imgStream = fs.createReadStream(imgPath);
+  res.setHeader('Content-type', mime.lookup(path.extname(id)));
+  imgStream.pipe(res);
+  imgStream.once('end', function () {
+    rimraf(imgPath, utility.noop);
+  });
 };
 
 exports.show = function (req, res) {
