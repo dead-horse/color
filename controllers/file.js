@@ -61,7 +61,7 @@ exports.get = function (req, res, next) {
   var imgStream = fs.createReadStream(imgPath);
   res.setHeader('Content-type', mime.lookup(path.extname(id)));
   imgStream.pipe(res);
-  imgStream.once('end', function () {
-    rimraf(imgPath, utility.noop);
-  });
+  // imgStream.once('end', function () {
+  //   rimraf(imgPath, utility.noop);
+  // });
 };
