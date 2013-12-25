@@ -120,9 +120,14 @@ function init() {
         var url = data.result.url;
         fileSelected(e, url);
       }
+    },
+    submit: function () {
+      $('#loader1 .spinner').show();
+      ctx1.clearRect(0, 0, loaderWidth, loaderHeight);
     }
   }).on('fileuploadfail', function(e, data) {
     console.log(e, data);
+    $('#loader1 .spinner').hide();
   });
 
   $('#input2').fileupload({
@@ -132,9 +137,14 @@ function init() {
         var url = data.result.url;
         fileSelected(e, url);
       }
+    },
+    submit: function () {
+      $('#loader2 .spinner').show();
+      ctx2.clearRect(0, 0, loaderWidth, loaderHeight);
     }
   }).on('fileuploadfail', function(e, data) {
     console.log(e, data);
+    $('#loader2 .spinner').hide();
   });
 
   loop();

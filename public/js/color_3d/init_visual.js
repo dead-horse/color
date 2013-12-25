@@ -4,6 +4,7 @@ var ctxs = [];
 var ctx1, ctx2;
 var groupIndex = 1;
 var current = {};
+
 function loadImagePt(imgName, groupIndex) {
   
   if (groupIndex === 1) {
@@ -12,26 +13,28 @@ function loadImagePt(imgName, groupIndex) {
   if (groupIndex === 2) {
     var ctx = ctx2
   }
-
-  if((current.imgName === imgName)&&(current.groupIndex === groupIndex)){
-  ctx.clearRect(0, 0, loaderWidth, loaderHeight);
-  var img = current.img;
-  loadVisual();
+  var imgCurrent = current[groupIndex];
+  if(imgCurrent && (imgCurrent.imgName === imgName)&&(imgCurrent.groupIndex === groupIndex)){
+    ctx.clearRect(0, 0, loaderWidth, loaderHeight);
+    var img = imgCurrent.img;
+    loadVisual();
   }
   else{
-  var img = new Image();
-  img.src = imgName;
-  img.onload = loadImageVisual;
-  $('#loader' + groupIndex + ' .spinner').show();
+    var img = new Image();
+    img.src = imgName;
+    img.onload = loadImageVisual;
+    $('#loader' + groupIndex + ' .spinner').show();
   }
 
   // var div = document.getElementById("loader"+groupIndex);
 
   function loadImageVisual(){
-  current.imgName = imgName;
-  current.groupIndex = groupIndex;
-  current.img = img;
-  loadVisual();
+    current[groupIndex] = {
+      imgName: imgName,
+      groupIndex: groupIndex,
+      img: img
+    };
+    loadVisual();
   }
   function loadVisual() {
     $('#loader' + groupIndex + ' .spinner').hide();
