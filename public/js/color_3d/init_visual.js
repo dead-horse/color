@@ -11,21 +11,18 @@ function loadImagePt(imgName, groupIndex) {
 
   var loadingImg = new Image();
   var div = document.getElementById("loader"+groupIndex);
-  div.style.backgroundImage = "url(../public/image/loading.gif)";//"url('URL')|none|inherit"
-  div.style.backgroundRepeat="no-repeat";
-  div.style.backgroundPosition =" center center";
-
+  if (groupIndex === 1) {
+    var ctx = ctx1
+  }
+  if (groupIndex === 2) {
+    var ctx = ctx2
+  }
+  ctx.clearRect(0, 0, loaderWidth, loaderHeight);
+  $('#loader' + groupIndex + ' .spinner').show();
   function loadVisual() {
-    
+    $('#loader' + groupIndex + ' .spinner').hide();
     imgNames[groupIndex] = imgName;
     bol = false;
-    if (groupIndex === 1) {
-      var ctx = ctx1
-    }
-    if (groupIndex === 2) {
-      var ctx = ctx2
-    }
-    ctx.clearRect(0, 0, loaderWidth, loaderHeight);
     ctx.drawImage(img, 0, 0, picWidth, picHeight);
     
     var url = ctx.canvas.toDataURL();
