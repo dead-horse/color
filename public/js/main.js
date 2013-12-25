@@ -9,105 +9,23 @@ var loaderHeight = 160;
 var picWidth = loaderWidth;
 var picHeight = loaderWidth;
 
-var helpBol = true;
 var chineseBol = true;
 
-function hideHelp() {
-  var div = document.getElementById("help");
-  div.style.top = parseInt(-h * 0.15) + "px"
-  div.style.opacity = 0.3;
-}
-
-var index = 0;
-
-function looseHelp() {
-  if (helpBol) {
-    index += 1;
-    if (index > 60) {
-      helpBol = false;
-      index = 0;
-      hideHelp();
-    }
-  }
-}
-
-function showHelp() {
-  var div = document.getElementById("help");
-  div.style.top = 0 + "px"
-  div.style.opacity = 0.8;
-}
-
-function help(e) {
-  if (!helpBol) {
-    if (e.clientY < h * 0.03) {
-      showHelp();
-    }
-    if (e.clientY > h * 0.4) {
-      hideHelp();
-      // div.style.background = "rgba(250,250,250,0.05)";
-    }
-  } else {
-    showHelp();
-  }
-}
 
 function initHelp() {
-  var div = document.createElement("div");
+  var textDiv = document.getElementById("helpHelp");
+  textDiv.innerHTML = "↑";
 
-  div.id = "help";
-  div.className = "transition";
-  div.style.position = "absolute";
-  div.style.left = "0px";
-  div.style.top = 0 + "px"
-  div.style.width = w + "px";
-  div.style.height = h * 0.2 + "px";
-  div.style.background = "rgba(10,30,30,1)";
-  div.style.opacity = 0.3;
-
-  document.addEventListener("mousemove", help, false);
-
-  document.body.appendChild(div);
-
-  var textDiv = document.createElement("div");
-  textDiv.innerHTML = "↓";
-  textDiv.className = "transition";
-  textDiv.style.position = "absolute";
-  textDiv.style.fontSize = "20px";
-  textDiv.style.color = "rgb(255,255,255)";
-  textDiv.style.top = h * 0.2 - 20 + "px";
-  textDiv.style.left = w / 2 - 30 + "px";
-  textDiv.style.background = "rgba(0,0,0,0.3)";
-  textDiv.addEventListener("click", function(e) {
-    helpBol = !helpBol;
-    console.log(e)
-  }, false);
-
-  div.appendChild(textDiv);
-
-  var textDiv = document.createElement("div");
+  var textDiv = document.getElementById("helpText");
+  textDiv.style.width = w/3 +"px";
+  textDiv.style.left = w/2-w/6 +"px";
   if(chineseBol){
-  textDiv.innerHTML = "===SHOW U SOME COLOR=== ：支持查看图片在LAB、RGB、HSL、HSV(HSB)色彩空间中像素分布，一个点代表一个像素。支持单图片色彩分析、双图片色彩对比、单图片色彩分布。 ------野兽&&死马@阿里巴巴数据平台";
+  textDiv.innerHTML = '<p style="text-align: center;">---GIVE U SOME COLOR SEE SEE--- </p>上传图片，查看像素在LAB、RGB、HSL、HSV(HSB)色彩空间中的分布，每个点一个像素。支持单图色彩分析+双图色彩对比+单图色彩分布。 ------------野兽&&死马@阿里巴巴数据平台';
   }
   else{
-    textDiv.innerHTML = '<p style="text-align: center;">===SHOW U SOME COLOR===</p> Visualize pixel colors in LAB 、RGB 、HSB(HSV)、HSL color space.You can upload single pictrue or two.---- yeshou&&sima@TAOBAO,Hangzhou,China.';
+    textDiv.innerHTML = '<p style="text-align: center;">---3D COLOR VISUALIZER---</p> Visualize pixel colors in LAB 、RGB 、HSB(HSV)、HSL color space .You can upload single pictrue or two.----------- yeshou&&sima@TAOBAO,Hangzhou,China.';
   }
-  textDiv.className = "transition";
-  textDiv.style.position = "absolute";
-  textDiv.style.fontSize = "15px";
-  textDiv.style.color = "rgb(255,255,255)";
-  textDiv.style.top = h * 0.05 + "px";
-  textDiv.style.left = w / 4 + "px";
-  textDiv.style.width = w / 2 + "px";
-  textDiv.style.background = "rgba(0,0,0,0.3)";
-
-  div.appendChild(textDiv);
-
 }
-
-function onClicking(){
-  this.onClick = location.href="https://github.com/dead-horse/color";
-}
-
 
 init();
 
@@ -174,17 +92,15 @@ function init() {
   else{
     chineseBol = false;
   }
-  chineseBol = false;
 
   initThree();
   initCamera();
   initAxis();
   initAxi();
 
-  // initHelp();
+  initHelp();
 
   initVisual();
-
 
 
   ///默认图片
@@ -229,7 +145,6 @@ function loop() {
   loopAxi();
   loopInteraction();
   loopThree()
-  // looseHelp();
 }
 
 function resetColorType(colorType1) {

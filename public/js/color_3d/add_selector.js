@@ -23,6 +23,7 @@ for(var i=0;i<N;i++){
   div.className="selectorGrid";
   div.style.width=(d-4)+"px";
   div.style.fontSize=fontSize+"px"
+  div.style.cursor ="pointer";
   div.innerHTML=innerHTML;
   container.appendChild(div)
 }  
