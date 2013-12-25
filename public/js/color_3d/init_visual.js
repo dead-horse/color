@@ -144,54 +144,52 @@ function addPts(ctx, groupIndex) {
   if (colorType[0] == "X") {
     if(groupIndex === 1){
 
-    var imgd = ctx.getImageData(0, 0, loaderWidth, loaderHeight);
-    var data = imgd.data;
-    PaticleGeometry1 = new THREE.Geometry();
-    PaticleGeometry2 = new THREE.Geometry();
-    PaticleGeometry3 = new THREE.Geometry();
+      var imgd = ctx.getImageData(0, 0, loaderWidth, loaderHeight);
+      var data = imgd.data;
+      PaticleGeometry1 = new THREE.Geometry();
+      PaticleGeometry2 = new THREE.Geometry();
+      PaticleGeometry3 = new THREE.Geometry();
 
-    for (var y = 0; y < picHeight; y += 1) {
-      var lineGeometry2 = new THREE.Geometry()
-      var lineGeometry3 = new THREE.Geometry()
-      for (var x = 0; x < picWidth; x += 1) {
-        console.log(picHeight)
-        index = x + y * picHeight;
-        var colorVector = colorSpace(data[4 * index], data[4 * index + 1], data[4 * index + 2]);
-        var x1 = x * 255 / picHeight;
-        var y1 = y * 255 / picWidth;
-        PaticleGeometry1.vertices.push(new THREE.Vector3(x1, colorVector.x, y1));
-        // PaticleGeometry2.vertices.push(new THREE.Vector3(x1, colorVector.y, y1));
-        // PaticleGeometry3.vertices.push(new THREE.Vector3(x1, colorVector.z, y1));
+      for (var y = 0; y < picHeight; y += 1) {
+        var lineGeometry2 = new THREE.Geometry()
+        var lineGeometry3 = new THREE.Geometry()
+        for (var x = 0; x < picWidth; x += 1) {
+          index = x + y * picHeight;
+          var colorVector = colorSpace(data[4 * index], data[4 * index + 1], data[4 * index + 2]);
+          var x1 = x * 255 / picHeight;
+          var y1 = y * 255 / picWidth;
+          PaticleGeometry1.vertices.push(new THREE.Vector3(x1, colorVector.x, y1));
+          // PaticleGeometry2.vertices.push(new THREE.Vector3(x1, colorVector.y, y1));
+          // PaticleGeometry3.vertices.push(new THREE.Vector3(x1, colorVector.z, y1));
 
-        lineGeometry2.vertices.push(new THREE.Vector3(x1, colorVector.y, y1));
-        lineGeometry3.vertices.push(new THREE.Vector3(x1, colorVector.z, y1));
+          lineGeometry2.vertices.push(new THREE.Vector3(x1, colorVector.y, y1));
+          lineGeometry3.vertices.push(new THREE.Vector3(x1, colorVector.z, y1));
+        }
+        var lineMesh2 = new THREE.Line(lineGeometry2, new THREE.LineBasicMaterial({
+          color: color2
+        }))
+        var lineMesh3 = new THREE.Line(lineGeometry3, new THREE.LineBasicMaterial({
+          color: color3
+        }))
+        lineMesh2.id = groupIndex;
+        lineMesh3.id = groupIndex;
+        scene.add(lineMesh2);
+        scene.add(lineMesh3);
       }
-      var lineMesh2 = new THREE.Line(lineGeometry2, new THREE.LineBasicMaterial({
-        color: color2
-      }))
-      var lineMesh3 = new THREE.Line(lineGeometry3, new THREE.LineBasicMaterial({
-        color: color3
-      }))
-      lineMesh2.id = groupIndex;
-      lineMesh3.id = groupIndex;
-      scene.add(lineMesh2);
-      scene.add(lineMesh3);
+      var meshPaticle1 = new THREE.ParticleSystem(PaticleGeometry1, PaticleMaterial1);
+      var meshPaticle2 = new THREE.ParticleSystem(PaticleGeometry2, PaticleMaterial2);
+      var meshPaticle3 = new THREE.ParticleSystem(PaticleGeometry3, PaticleMaterial3);
+
+      meshPaticle1.id = groupIndex;
+      meshPaticle2.id = groupIndex;
+      meshPaticle3.id = groupIndex;
+      scene.add(meshPaticle1);
+      // scene.add(meshPaticle2);
+      // scene.add(meshPaticle3);
+
+    } else {
+      ctx2.clearRect(0, 0, loaderWidth, loaderHeight);
     }
-    var meshPaticle1 = new THREE.ParticleSystem(PaticleGeometry1, PaticleMaterial1);
-    var meshPaticle2 = new THREE.ParticleSystem(PaticleGeometry2, PaticleMaterial2);
-    var meshPaticle3 = new THREE.ParticleSystem(PaticleGeometry3, PaticleMaterial3);
-
-    meshPaticle1.id = groupIndex;
-    meshPaticle2.id = groupIndex;
-    meshPaticle3.id = groupIndex;
-    scene.add(meshPaticle1);
-    // scene.add(meshPaticle2);
-    // scene.add(meshPaticle3);
-
-  }
-  if(groupIndex ===2){
-    ctx2.clearRect(0,0,loaderWidth,loaderHeight)
-  }
   }
 
 
