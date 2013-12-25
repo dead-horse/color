@@ -189,9 +189,8 @@ function init() {
 
   ///默认图片
   var img = new Image();
-  var name = "/public/image/gradient/"
-  var imgName1 = name + "image" + ".jpg";
-  loadImagePt(imgName1, groupIndex)
+  var imgName1 = '/public/image/demo/1.jpg';
+  loadImagePt(imgName1, groupIndex);
 
   initRender();
   initInteraction();
