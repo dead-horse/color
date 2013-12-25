@@ -3,30 +3,46 @@ var PaticleMaterial, PaticleMaterial1, PaticleMaterial2, PaticleMaterial3;
 var ctxs = [];
 var ctx1, ctx2;
 var groupIndex = 1;
+var current = {};
 
 function loadImagePt(imgName, groupIndex) {
-  var img = new Image();
-  img.src = imgName;
-  img.onload = loadVisual
-
-  var loadingImg = new Image();
-  var div = document.getElementById("loader"+groupIndex);
+  
   if (groupIndex === 1) {
     var ctx = ctx1
   }
   if (groupIndex === 2) {
     var ctx = ctx2
   }
-  ctx.clearRect(0, 0, loaderWidth, loaderHeight);
-  $('#loader' + groupIndex + ' .spinner').show();
+  var imgCurrent = current[groupIndex];
+  if(imgCurrent && (imgCurrent.imgName === imgName)&&(imgCurrent.groupIndex === groupIndex)){
+    ctx.clearRect(0, 0, loaderWidth, loaderHeight);
+    var img = imgCurrent.img;
+    loadVisual();
+  }
+  else{
+    var img = new Image();
+    img.src = imgName;
+    img.onload = loadImageVisual;
+    $('#loader' + groupIndex + ' .spinner').show();
+  }
+
+  // var div = document.getElementById("loader"+groupIndex);
+
+  function loadImageVisual(){
+    current[groupIndex] = {
+      imgName: imgName,
+      groupIndex: groupIndex,
+      img: img
+    };
+    loadVisual();
+  }
   function loadVisual() {
     $('#loader' + groupIndex + ' .spinner').hide();
     imgNames[groupIndex] = imgName;
     bol = false;
+    console.log(ctx)
     ctx.drawImage(img, 0, 0, picWidth, picHeight);
-    
     var url = ctx.canvas.toDataURL();
-
     addPts(ctx, groupIndex);
   }
 }
