@@ -1,4 +1,18 @@
 
+0.0.2 / 2013-12-25 
+==================
+
+  * clear
+  * Merge pull request #4 from dead-horse/onlineVersion
+  * refactor css
+  * 1
+  * 增加help模块
+  * 1224night
+  * 1
+  * add addthis
+  * fix fork
+  * add History
+
 0.0.1 / 2013-12-24 
 ==================
 
