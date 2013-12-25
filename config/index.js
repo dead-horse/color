@@ -35,10 +35,10 @@ var config = {
   viewCache: true,
   logdir: path.join(root, '.tmp', 'logs'),
   qn: {
-    accessKey: process.env.qnAccessKey,
-    secretKey: process.env.qnSecretKey,
-    bucket: process.env.qnBucket,
-    domain: process.env.qnDomain
+    accessKey: process.env.qnAccessKey || 'qn access key',
+    secretKey: process.env.qnSecretKey || 'qn secret key',
+    bucket: process.env.qnBucket || 'qn bucket',
+    domain: process.env.qnDomain || 'qn domain'
   },
   uploadDir: path.join(root, 'public', 'upload'),
   maxRequestSize: 5 * 1024 * 1024

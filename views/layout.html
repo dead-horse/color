@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
-    <title>Color 3D Analysis</title>
+    <title>3D Color Analysis</title>
+    
+    <meta property="og:title" content="3D Color Analysis" />
+    <meta property="og:description" content="Show the color distribution inside the images to you." />
+    <meta property="og:image" href="https://i.alipayobjects.com/e/201312/1krIHwyun7.png" />
+    
+    <link rel="stylesheet" href="/public/css/main.css" />
     <style>
       #fork{position:fixed;top:0;right:0;_position:absolute;z-index: 10000;}
     </style>
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>    
   </head>
   <body>
     <a href="https://github.com/dead-horse/color" id="fork" target="_blank">
@@ -15,14 +21,21 @@
   </body>
   <!-- AddThis Smart Layers BEGIN -->
   <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52b9b3fd6224ff19"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52ba52ad18a9542e"></script>
   <script type="text/javascript">
     addthis.layers({
-      'theme' : 'transparent',
-      'share' : {
-        'position' : 'left',
-        'numPreferredServices' : 5
-      }   
+      theme : 'transparent',
+      share : {
+        // name: 'Show You Some Color!',
+        // url: 'http://color3d.herokuapp.com/',
+        // description: 'Upload some images and check out thire color distribution in 3D!',
+        position : 'right',
+        numPreferredServices : 5,
+        services: 'sinaweibo,facebook,google_plusone_share,twitter,more',
+        offset: {
+          top: '250px'
+        }
+      },
     });
   </script>
   <!-- AddThis Smart Layers END -->  
