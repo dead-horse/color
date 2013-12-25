@@ -23,7 +23,7 @@ function initHelp() {
   textDiv.innerHTML = '<p style="text-align: center;">---GIVE U SOME COLOR SEE SEE--- </p>上传图片，查看像素在LAB、RGB、HSL、HSV(HSB)色彩空间中的分布，每个点一个像素。支持单图色彩分析+双图色彩对比+单图色彩分布。 ------------野兽&&死马@阿里巴巴数据平台';
   }
   else{
-    textDiv.innerHTML = '<p style="text-align: center;">---3D COLOR VISUALIZER---</p> Visualize pixel colors in LAB 、RGB 、HSB(HSV)、HSL color space .You can upload single pictrue or two.----------- yeshou&&sima@TAOBAO,Hangzhou,China.';
+    textDiv.innerHTML = '<p style="text-align: center;">---3D COLOR VISUALIZER---</p> Visualize pixel colors in LAB 、RGB 、HSB(HSV)、HSL color space .You can upload single pictrue or two.----------- yeshou&&dead_horse@TAOBAO,Hangzhou,China.';
   }
 }
 
