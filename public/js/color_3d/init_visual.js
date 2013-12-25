@@ -142,6 +142,8 @@ function addPts(ctx, groupIndex) {
   }
 
   if (colorType[0] == "X") {
+    if(groupIndex === 1){
+
     var imgd = ctx.getImageData(0, 0, loaderWidth, loaderHeight);
     var data = imgd.data;
     PaticleGeometry1 = new THREE.Geometry();
@@ -187,6 +189,11 @@ function addPts(ctx, groupIndex) {
     // scene.add(meshPaticle3);
 
   }
+  if(groupIndex ===2){
+    ctx2.clearRect(0,0,loaderWidth,loaderHeight)
+  }
+  }
+
 
 }
 
