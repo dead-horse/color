@@ -1,4 +1,16 @@
 
+0.0.3 / 2013-12-25 
+==================
+
+  * Merge pull request #5 from dead-horse/1226-2
+  * fix loading
+  * fix main.css style
+  * all
+  * add favicon and clicki
+  * fix image
+  * fix title
+  * fix share
+
 0.0.2 / 2013-12-25 
 ==================
 
