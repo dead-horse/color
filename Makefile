@@ -26,8 +26,12 @@ test-cov-html:
 
 test-all: test test-cov
 
-clean: 
+clean:
 	@rm -rf node_modules
 	@rm -rf coverage.html
 
-.PHONY: install install-test test test-cov test-all test-cov-html clean
+autod: install-test
+	@./node_modules/.bin/autod -w -e public,views
+	@$(MAKE) install-test
+
+.PHONY: test

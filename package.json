@@ -4,8 +4,8 @@
   "description": "color visualization in 3D",
   "keywords": [],
   "author": "dead_horse <dead_horse@qq.com>",
-  "repository": { 
-    "type": "git", 
+  "repository": {
+    "type": "git",
     "url": "git@git@github.com:dead_horse/color.git"
   },
   "dependencies": {
@@ -17,21 +17,22 @@
     "graceful": "0.0.5",
     "logfilestream": "0.1.0",
     "mkdirp": "0.3.5",
-    "moment": "2.5.0",
+    "moment": "2.5.1",
     "ms": "0.6.2",
     "qn": "0.2.0",
     "raw-body": "1.1.2",
     "response-patch": "0.1.1",
-    "rimraf": "2.2.5",
+    "rimraf": "2.2.6",
     "urlrouter": "0.5.4",
-    "utility": "0.1.9"
+    "utility": "0.1.10"
   },
   "devDependencies": {
+    "autod": "0.1.x",
     "blanket": "~1.1.4",
     "mocha": "*",
     "pedding": "*",
     "should": "~2.1.0",
-    "supertest": "0.8.2",
+    "supertest": "0.9.0",
     "travis-cov": "*"
   },
   "scripts": {
